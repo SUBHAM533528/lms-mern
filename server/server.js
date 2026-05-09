@@ -12,8 +12,10 @@ const app = express()
 await connectDb()
 
 // Middlewares
-app.use(cors())
 app.use("/api/webhooks", clerkWebhooks)
+
+app.use(cors())
+app.use(express.json());
 
 // Routes
 app.get('/', (req, res) => res.send('Api Is Working'))
