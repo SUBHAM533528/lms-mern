@@ -13,6 +13,7 @@ await connectDb()
 
 // Middlewares
 app.use(cors())
+app.use("/api/webhooks", clerkWebhooks)
 
 // Routes
 app.get('/', (req, res) => res.send('Api Is Working'))
