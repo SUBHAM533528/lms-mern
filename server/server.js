@@ -10,11 +10,7 @@ const app = express()
 await connectDb()
 
 // Clerk webhook route BEFORE express.json()
-app.post(
-  '/api/webhooks',
-  express.raw({ type: 'application/json' }),
-  clerkWebhooks
-)
+app.post('/api/webhooks', express.json(), clerkWebhooks)
 
 // Other middlewares
 app.use(cors())
